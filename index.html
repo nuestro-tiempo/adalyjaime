@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Adaly y Jaime</title>
 
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@500&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    /* Fondo y fuente */
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -20,14 +22,12 @@
       text-align: center;
     }
 
-    /* Título */
     h1 {
       margin-top: 30px;
       font-size: 2em;
       letter-spacing: 2px;
     }
 
-    /* Carrusel */
     .carousel {
       position: relative;
       width: 90%;
@@ -46,7 +46,7 @@
     .carousel img {
       max-width: 100%;
       max-height: 100%;
-      object-fit: contain; /* ahora no se corta ni se desborda */
+      object-fit: contain;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -59,20 +59,53 @@
       opacity: 1;
     }
 
-    /* Contador */
+    /* Contador con fuente romántica */
     #contador {
       margin-top: 30px;
-      font-size: 1.3em;
-      font-weight: 600;
+      font-family: 'Great Vibes', cursive;
+      font-size: 1.8em;
+      color: #ffc2d1;
+      animation: pulse 4s ease-in-out infinite alternate;
     }
 
-    /* Adaptable a móvil */
+    .romantico {
+      margin-top: 15px;
+      font-size: 1.3em;
+      color: #ffb6c1;
+      animation: fadeIn 3s ease-in-out infinite alternate;
+    }
+
+    /* Frases románticas con otra fuente */
+    .extra {
+      margin-top: 10px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.5em;
+      color: #ff9aa2;
+      animation: pulse 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0.6; }
+      to { opacity: 1; }
+    }
+
+    @keyframes pulse {
+      from { opacity: 0.7; transform: scale(1); }
+      to { opacity: 1; transform: scale(1.05); }
+    }
+
     @media (max-width: 500px) {
       h1 {
         font-size: 1.7em;
       }
       .carousel {
         height: 250px;
+      }
+      #contador {
+        font-size: 1.6em;
+      }
+      .extra {
+        font-size: 1.3em;
       }
     }
   </style>
@@ -82,13 +115,16 @@
   <h1>Adaly y Jaime</h1>
 
   <div class="carousel" id="carousel">
-    <!-- Sube tus fotos reemplazando las rutas -->
     <img src="foto1.jpg" class="active" alt="Foto 1">
     <img src="foto2.jpg" alt="Foto 2">
     <img src="foto3.jpeg" alt="Foto 3">
   </div>
 
   <div id="contador"></div>
+
+  <div class="romantico">Te amo 💞</div>
+  <div class="extra">Cada día contigo es un regalo ❤️</div>
+  >
 
   <script>
     // Carrusel automático
@@ -99,7 +135,7 @@
       images[index].classList.remove('active');
       index = (index + 1) % images.length;
       images[index].classList.add('active');
-    }, 3000); // Cambia cada 3 segundos
+    }, 3000);
 
     // Contador de días
     const fechaInicio = new Date("2025-10-17T00:00:00");
@@ -108,12 +144,7 @@
     const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
 
     document.getElementById("contador").textContent =
-        `Han pasado ${dias} días desde ese momento 💕`;
+      `Han pasado ${dias} días desde ese momento 💕`;
   </script>
-   <div class="romantico">Te amo 💞</div>
-  <div class="extra">Cada día contigo es un regalo. ❤️</div>
-  <div class="extra">Eres mi razón, mi calma y mi todo. 💫</div>
 </body>
 </html>
-
-
